@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>부산 금정구 부곡시장 | 정과 신선함이 가득한 전통시장</title>
+    <title>부산 금정구 부곡시장 | 정과 따뜻함이 가득한 전통시장</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        window.tailwind = window.tailwind || {};
         tailwind.config = {
             theme: {
                 extend: {
@@ -26,7 +27,7 @@
                     }
                 }
             }
-        }
+        };
     </script>
     <!-- FontAwesome & Lucide Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -125,7 +126,8 @@
                     </h1>
                     <p class="text-base sm:text-lg text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                         부산 금정구 부곡시장에서 매일 아침 들어오는 싱싱한 제철 농수산물과 
-                        따뜻한 덤이 오가는 정겨운 상인들을 만날 수 있습니다. 11월 스페셜 이벤트에도 참여해보세요!
+                        따뜻한 덤이 오가는 정겨운 상인들을 만날 수 있습니다. 
+                        11월 21일 부곡시장에서 진행하는 이벤트도 참여해보세요!
                     </p>
 
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
@@ -135,23 +137,19 @@
                         </a>
                         <a href="#event-section" class="w-full sm:w-auto bg-white border-2 border-amber-800 text-amber-900 hover:bg-amber-50 px-7 py-3.5 rounded-2xl font-bold hover:scale-105 transition-all text-center flex items-center justify-center gap-2">
                             <i class="fa-solid fa-bullhorn text-red-500"></i>
-                            11월 상권 살리기 프로젝트
+                            상권 살리기 프로젝트
                         </a>
                     </div>
 
                     <!-- Market Badge Highlights -->
-                    <div class="mt-10 pt-8 border-t border-amber-200/60 grid grid-cols-3 gap-4 text-center lg:text-left">
+                    <div class="mt-10 pt-8 border-t border-amber-200/60 grid grid-cols-2 gap-6 text-center lg:text-left">
                         <div>
-                            <p class="text-xl sm:text-2xl font-black text-amber-900">50년+</p>
-                            <p class="text-xs sm:text-sm text-gray-500 font-medium">전통과 역사의 시장</p>
+                            <p class="text-xl sm:text-2xl font-black text-amber-900">48년~</p>
+                            <p class="text-xs sm:text-sm text-gray-500 font-medium">부곡상가시장은 1978년에 형성,<br>2005.05.21 전통 시장으로 인정</p>
                         </div>
                         <div>
                             <p class="text-xl sm:text-2xl font-black text-emerald-800">100%</p>
-                            <p class="text-xs sm:text-sm text-gray-500 font-medium">온누리/제로페이 가능</p>
-                        </div>
-                        <div>
-                            <p class="text-xl sm:text-2xl font-black text-amber-900">매일</p>
-                            <p class="text-xs sm:text-sm text-gray-500 font-medium">신선한 산지직송</p>
+                            <p class="text-xs sm:text-sm text-gray-500 font-medium">전 점포가 온누리상품권 가맹점으로 등록</p>
                         </div>
                     </div>
                 </div>
@@ -221,18 +219,78 @@
 
                             <!-- Floating Chat Bubble -->
                             <div class="absolute top-3 bg-white px-3 py-2 rounded-2xl shadow-md border border-amber-200 text-xs text-amber-950 font-bold animate-bounce">
-                                💬 "11월 특가 & 스탬프 이벤트 진행중!"
+                                💬 "11월 21일 부곡시장 이벤트 진행중!"
                             </div>
                         </div>
 
                         <!-- Card Foot Caption -->
                         <div class="mt-4 text-center">
-                            <h3 class="font-bold text-gray-800 text-sm">부곡시장 마스코트 패밀리</h3>
-                            <p class="text-xs text-gray-500">가마솥의 깊은 맛 '가마실' & 소소한 즐거움 '소락이'</p>
+                            <h3 class="font-bold text-gray-800 text-sm">부곡시장 마스코트</h3>
+                            <p class="text-xs text-gray-500">가마솥 모양의 부곡동 '가마실' & 부드럽고 통통한 매력 '소락이'</p>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- BUGOK MARKET ADVANTAGES SECTION -->
+            <div class="mt-16 pt-12 border-t border-amber-200/80">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-amber-800 font-bold text-xs tracking-wider uppercase bg-amber-200/60 px-3 py-1 rounded-full">Why Bugok Market</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-2">
+                        왜 <span class="text-amber-800">부곡시장</span>이어야 할까요?
+                    </h2>
+                    <p class="text-gray-600 text-xs sm:text-sm mt-1">
+                        이웃의 정이 살아 숨 쉬고, 건강한 식재료가 만나는 부곡시장만의 4가지 특별함
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-6 rounded-2xl border border-amber-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xl mb-4">
+                            🥬
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-base mb-1.5">산지직송 100% 신선함</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            매일 새벽 산지에서 들어오는 신선한 농수산물과 과일을 거품 없는 착한 가격으로 만날 수 있습니다.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-6 rounded-2xl border border-amber-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-xl mb-4">
+                            ❤️
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-base mb-1.5">따뜻한 정과 넉넉한 덤</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            대형마트와 달리 상인들의 따뜻한 말 한마디와 손끝에서 묻어나는 풍성한 덤을 느낄 수 있습니다.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-6 rounded-2xl border border-amber-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-xl mb-4">
+                            💳
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-base mb-1.5">알뜰 쇼핑 포인트</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            전통시장 활성화를 위해 전 점포가 온누리상품권에 가맹되어 있습니다.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="bg-white p-6 rounded-2xl border border-amber-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xl mb-4">
+                            🚗
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-base mb-1.5">편리한 장보기</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            날씨와 상관없이 장을 볼 수 있도록 골목에 천막을 설치하여 운영하고 있다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- END ADVANTAGES SECTION -->
         </div>
     </section>
 
@@ -514,11 +572,11 @@
                     🎉 11월 부곡시장 상권 살리기 프로젝트
                 </span>
                 <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-amber-100">
-                    부곡시장 방문하고<br class="sm:hidden"> 혜택 선물 받아가세요!
+                    부곡시장 방문하고<br class="sm:hidden"> 선물 받아가세요!
                 </h2>
                 <p class="text-amber-200/80 mt-4 text-sm sm:text-base leading-relaxed">
-                    11월 한 달간 진행되는 전통시장 스탬프 투어 및 영수증 인증 이벤트에 참여하세요. 
-                    가마실과 소락이가 푸짐한 온누리상품권과 사은품을 드립니다!
+                    11월 21일에 진행되는 부곡시장 이벤트에 참여하세요. 
+                    가마실과 소락이가 열심히 준비한 활동입니당~
                 </p>
             </div>
 
@@ -529,12 +587,12 @@
                     <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-300 flex items-center justify-center font-bold text-xl mb-4">
                         01
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">스탬프 도장 깨기 투어</h3>
+                    <h3 class="text-xl font-bold text-white mb-2">부곡시장만의 특색 만들기</h3>
                     <p class="text-amber-100/70 text-sm mb-4">
-                        지정 상점 3곳 이상 방문 후 상품 구매 시 '가마실 도장'을 찍어드립니다. 3개 완료 시 부곡시장 장바구니 증정!
+                        부곡시장 마스코트 가마실&소락이 캐틱터 디자인 + 부곡시장 내부 지도 제작
                     </p>
                     <div class="text-xs text-amber-300 font-semibold bg-white/5 p-2.5 rounded-xl border border-white/5">
-                        📍 진행장소: 부곡시장 전 매장
+                        📍 사전 활동 진행
                     </div>
                 </div>
 
@@ -543,12 +601,12 @@
                     <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-300 flex items-center justify-center font-bold text-xl mb-4">
                         02
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">영수증 리워드 페이백</h3>
+                    <h3 class="text-xl font-bold text-white mb-2">부곡시장 이벤트</h3>
                     <p class="text-amber-100/70 text-sm mb-4">
-                        당일 구매 영수증 합산 3만원 이상 인증 시 온누리상품권 5천원권을 현장에서 즉시 환급해 드립니다.
+                        부곡시장 내부 지도와 이달의 제철 식품이 담긴 팜플렛을 가져가면 가마실과 소락이가 그려진 장바구니를 무료로 드립니다.
                     </p>
                     <div class="text-xs text-amber-300 font-semibold bg-white/5 p-2.5 rounded-xl border border-white/5">
-                        🎁 환급장소: 부곡시장 상인회 사무실
+                        📍 진행장소: 부곡시장 입구
                     </div>
                 </div>
 
@@ -557,12 +615,12 @@
                     <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-300 flex items-center justify-center font-bold text-xl mb-4">
                         03
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">SNS 소문내기 이벤트</h3>
+                    <h3 class="text-xl font-bold text-white mb-2">SNS 소문내기</h3>
                     <p class="text-amber-100/70 text-sm mb-4">
-                        부곡시장 방문 인증샷과 필수 해시태그(#부곡시장 #가마실 #소락이)를 인스타그램에 올리면 추첨을 통해 50명 선물 지급!
+                        부곡시장을 홍보하는 인스타그램 운영
                     </p>
                     <div class="text-xs text-amber-300 font-semibold bg-white/5 p-2.5 rounded-xl border border-white/5">
-                        📱 참여: 인스타그램 / 블로그
+                        📱 참여: @ilovebugok 인스타그램
                     </div>
                 </div>
             </div>
@@ -576,7 +634,7 @@
                     </div>
                     <div>
                         <h4 class="font-bold text-lg text-white">소락이가 알려주는 팁!</h4>
-                        <p class="text-amber-200/90 text-sm">온라인 사전 이벤트 신청서를 작성하시면 시장 방문 시 소정의 캐릭터 굿즈(스티커)를 무료로 드립니다.</p>
+                        <p class="text-amber-200/90 text-sm">부곡시장을 위한 좋은 의견이 있다면 설문조사하러 가기~</p>
                     </div>
                 </div>
                 <button onclick="openEventFormModal()" class="w-full sm:w-auto shrink-0 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-amber-950 font-black px-8 py-4 rounded-2xl shadow-xl hover:scale-105 transition-all text-sm">
@@ -604,7 +662,7 @@
                 <div class="lg:col-span-7 bg-amber-50 rounded-3xl p-3 border border-amber-200 shadow-sm">
                     <div class="w-full h-80 sm:h-96 rounded-2xl bg-stone-200 overflow-hidden relative flex items-center justify-center">
                         <!-- Map Visual with User Provided Image -->
-                        <img src="image_5ba268.jpg" alt="부곡시장 지도 위치" class="w-full h-full object-cover" />
+                        <img src="s.map.jpeg" alt="부곡시장 지도 위치" class="w-full h-full object-cover" />
                         <div class="absolute bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-amber-200 text-center max-w-xs">
                             <div class="w-8 h-8 rounded-full bg-amber-800 text-white flex items-center justify-center mx-auto mb-2 font-bold">
                                 <i class="fa-solid fa-location-dot"></i>
@@ -671,10 +729,10 @@
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>
                     <div class="flex items-center gap-2 mb-2">
-                        <span class="text-white font-black text-lg">부산 금정구 부곡시장 상인회</span>
+                        <span class="text-white font-black text-lg">Clab 2팀</span>
                     </div>
                     <p class="text-xs text-stone-500 leading-relaxed">
-                        부산광역시 금정구 부곡시장길 일원 | TEL: 051-000-0000 | 상인회 운영시간: 09:00 ~ 18:00
+                        부산광역시 금정구 부곡시장 상인 | TEL: 051-518-7576 | 상인회 운영시간: 08:00 ~ 22:00
                     </p>
                     <p class="text-xs text-stone-600 mt-2">
                         © 2026 부곡시장 상권 살리기 프로젝트. All rights reserved.
