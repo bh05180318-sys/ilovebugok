@@ -269,146 +269,127 @@
                 <button onclick="filterCategory('all')" class="cat-btn active bg-amber-800 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-sm transition-all">
                     전체 보기
                 </button>
-                <button onclick="filterCategory('farm')" class="cat-btn bg-stone-100 text-stone-700 hover:bg-emerald-50 hover:text-emerald-800 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-stone-200">
-                    🥬 농수산물/과일
+                <button onclick="filterCategory('vegetable')" class="cat-btn bg-emerald-50 text-emerald-800 hover:bg-emerald-100 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-emerald-200">
+                    🟢 야채 (농산물/과일)
                 </button>
-                <button onclick="filterCategory('meat')" class="cat-btn bg-stone-100 text-stone-700 hover:bg-rose-50 hover:text-rose-800 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-stone-200">
-                    🥩 정육/수산
+                <button onclick="filterCategory('fish')" class="cat-btn bg-blue-50 text-blue-800 hover:bg-blue-100 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-blue-200">
+                    🔵 생선 (수산물)
                 </button>
-                <button onclick="filterCategory('food')" class="cat-btn bg-stone-100 text-stone-700 hover:bg-amber-50 hover:text-amber-800 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-stone-200">
-                    🍱 반찬/먹거리
+                <button onclick="filterCategory('meat')" class="cat-btn bg-rose-50 text-rose-800 hover:bg-rose-100 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-rose-200">
+                    🔴 고기 (정육/축산)
                 </button>
-                <button onclick="filterCategory('general')" class="cat-btn bg-stone-100 text-stone-700 hover:bg-indigo-50 hover:text-indigo-800 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-stone-200">
-                    🛒 생활잡화
+                <button onclick="filterCategory('food')" class="cat-btn bg-amber-50 text-amber-800 hover:bg-amber-100 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-amber-200">
+                    🟡 밥집 (먹거리/반찬/식당)
                 </button>
             </div>
 
             <!-- Interactive Map Graphic Viewport -->
             <div class="relative bg-amber-50/70 rounded-3xl p-4 sm:p-8 border-2 border-amber-200/80 shadow-inner overflow-hidden">
                 <!-- Map Legend -->
-                <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-2xl shadow-sm border border-amber-100 text-xs hidden sm:block z-10">
-                    <p class="font-bold text-gray-800 mb-1.5"><i class="fa-solid fa-map-pin text-amber-800 mr-1"></i> 구역 안내</p>
-                    <div class="space-y-1 text-gray-600">
-                        <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-emerald-500"></span> A구역: 신선 채소/과일</div>
-                        <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-rose-500"></span> B구역: 수산/정육 코너</div>
-                        <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-500"></span> C구역: 대표 먹거리/반찬</div>
-                        <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-indigo-500"></span> D구역: 잡화/의류/상점</div>
+                <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-3.5 rounded-2xl shadow-md border border-amber-100 text-xs hidden sm:block z-10">
+                    <p class="font-bold text-gray-800 mb-2"><i class="fa-solid fa-map-pin text-amber-800 mr-1"></i> 업종별 범례</p>
+                    <div class="space-y-1.5 text-gray-700 font-medium">
+                        <div class="flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-full bg-blue-500 shadow-sm"></span> 파랑: 생선 (수산)</div>
+                        <div class="flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-full bg-emerald-500 shadow-sm"></span> 초록: 야채 (농산/과일)</div>
+                        <div class="flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-full bg-rose-500 shadow-sm"></span> 빨강: 고기 (정육)</div>
+                        <div class="flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-full bg-amber-400 shadow-sm"></span> 노랑: 밥집 (먹거리/식당)</div>
                     </div>
                 </div>
 
-                <!-- 2D Floor Plan Container -->
-                <div class="relative w-full h-[480px] bg-white rounded-2xl border border-amber-200 overflow-hidden shadow-sm flex items-center justify-center">
+                <!-- 2D Floor Plan Container with bugokimg.jpg -->
+                <div class="relative w-full h-[580px] bg-white rounded-2xl border border-amber-200 overflow-hidden shadow-sm flex items-center justify-center">
                     
-                    <!-- SVG Market Road Grid Layout -->
-                    <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#F3F4F6" stroke-width="1"/>
-                            </pattern>
-                        </defs>
-                        <rect width="100%" height="100%" fill="url(#grid)" />
-                        <!-- Central Walkway Roads -->
-                        <rect x="5%" y="45%" width="90%" height="10%" fill="#E5E7EB" rx="4"/>
-                        <rect x="45%" y="8%" width="10%" height="84%" fill="#E5E7EB" rx="4"/>
-                        <text x="50%" y="50%" text-anchor="middle" fill="#9CA3AF" font-size="12" font-weight="bold" dy=".3em">부곡시장 중앙 통로</text>
-                        
-                        <!-- Zone Labels -->
-                        <rect x="8%" y="10%" width="34%" height="32%" fill="#ECFDF5" rx="12" stroke="#A7F3D0" stroke-width="2"/>
-                        <text x="12%" y="18%" fill="#065F46" font-size="14" font-weight="bold">A구역 (농산물)</text>
+                    <!-- Background Map Image (bugokimg.jpg) -->
+                    <img 
+                        src="bugokimg.jpg" 
+                        alt="부곡시장 안내도 Map" 
+                        class="absolute inset-0 w-full h-full object-contain p-2"
+                        onerror="this.onerror=null; this.src='https://placehold.co/1000x700/FFFFFF/4A3525?text=bugokimg.jpg';"
+                    />
 
-                        <rect x="58%" y="10%" width="34%" height="32%" fill="#FFF1F2" rx="12" stroke="#FECDD3" stroke-width="2"/>
-                        <text x="62%" y="18%" fill="#9F1239" font-size="14" font-weight="bold">B구역 (수산/정육)</text>
-
-                        <rect x="8%" y="58%" width="34%" height="32%" fill="#FFFBEB" rx="12" stroke="#FDE68A" stroke-width="2"/>
-                        <text x="12%" y="66%" fill="#92400E" font-size="14" font-weight="bold">C구역 (먹거리/반찬)</text>
-
-                        <rect x="58%" y="58%" width="34%" height="32%" fill="#EEF2FF" rx="12" stroke="#C7D2FE" stroke-width="2"/>
-                        <text x="62%" y="66%" fill="#3730A3" font-size="14" font-weight="bold">D구역 (생활잡화)</text>
-                    </svg>
-
-                    <!-- DYNAMIC SHOP PINS -->
-                    <!-- Pin 1: 부곡 싱싱청과 -->
-                    <div class="shop-pin absolute cursor-pointer group" style="top: 22%; left: 20%;" data-category="farm" onclick="openShopModal(0)">
+                    <!-- DYNAMIC EXCEL SHOP PINS OVERLAY -->
+                    <!-- Pin 1: 부곡 싱싱청과 (초록) -->
+                    <div class="shop-pin absolute cursor-pointer group z-20" style="top: 80%; left: 60%;" data-category="vegetable" onclick="openShopModal(0)">
                         <div class="relative flex items-center justify-center">
                             <span class="absolute w-8 h-8 rounded-full bg-emerald-400 pin-pulse"></span>
-                            <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold shadow-lg group-hover:scale-125 transition-transform">
-                                <i class="fa-solid fa-apple-whole"></i>
+                            <div class="w-9 h-9 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold shadow-lg group-hover:scale-125 transition-transform border-2 border-white">
+                                <i class="fa-solid fa-carrot text-xs"></i>
                             </div>
                         </div>
-                        <div class="bg-gray-900/90 text-white text-[11px] font-bold px-2.5 py-1 rounded-md shadow-md mt-1 -translate-x-1/4 whitespace-nowrap">
-                            101호 부곡싱싱청과
+                        <div class="bg-gray-900/90 text-white text-[11px] font-bold px-2 py-0.5 rounded-md shadow-md mt-1 -translate-x-1/4 whitespace-nowrap">
+                            야채·과일 뿌리마당
                         </div>
                     </div>
 
-                    <!-- Pin 2: 금정 수산 -->
-                    <div class="shop-pin absolute cursor-pointer group" style="top: 25%; left: 72%;" data-category="meat" onclick="openShopModal(1)">
+                    <!-- Pin 2: 금정 수산 (파랑) -->
+                    <div class="shop-pin absolute cursor-pointer group z-20" style="top: 42%; left: 63%;" data-category="fish" onclick="openShopModal(1)">
+                        <div class="relative flex items-center justify-center">
+                            <span class="absolute w-8 h-8 rounded-full bg-blue-400 pin-pulse"></span>
+                            <div class="w-9 h-9 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold shadow-lg group-hover:scale-125 transition-transform border-2 border-white">
+                                <i class="fa-solid fa-fish text-xs"></i>
+                            </div>
+                        </div>
+                        <div class="bg-gray-900/90 text-white text-[11px] font-bold px-2 py-0.5 rounded-md shadow-md mt-1 -translate-x-1/4 whitespace-nowrap">
+                            금광수산 (생선)
+                        </div>
+                    </div>
+
+                    <!-- Pin 3: 부곡 정육점 (빨강) -->
+                    <div class="shop-pin absolute cursor-pointer group z-20" style="top: 27%; left: 47%;" data-category="meat" onclick="openShopModal(4)">
                         <div class="relative flex items-center justify-center">
                             <span class="absolute w-8 h-8 rounded-full bg-rose-400 pin-pulse"></span>
-                            <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center font-bold shadow-lg group-hover:scale-125 transition-transform">
-                                <i class="fa-solid fa-fish"></i>
+                            <div class="w-9 h-9 rounded-full bg-rose-500 text-white flex items-center justify-center font-bold shadow-lg group-hover:scale-125 transition-transform border-2 border-white">
+                                <i class="fa-solid fa-drumstick-bite text-xs"></i>
                             </div>
                         </div>
-                        <div class="bg-gray-900/90 text-white text-[11px] font-bold px-2.5 py-1 rounded-md shadow-md mt-1 -translate-x-1/4 whitespace-nowrap">
-                            108호 금정수산
+                        <div class="bg-gray-900/90 text-white text-[11px] font-bold px-2 py-0.5 rounded-md shadow-md mt-1 -translate-x-1/4 whitespace-nowrap">
+                            한우도매 정육점 (고기)
                         </div>
                     </div>
 
-                    <!-- Pin 3: 가마솥 즉석반찬 -->
-                    <div class="shop-pin absolute cursor-pointer group" style="top: 70%; left: 22%;" data-category="food" onclick="openShopModal(2)">
+                    <!-- Pin 4: 소문난 시장칼국수 (노랑) -->
+                    <div class="shop-pin absolute cursor-pointer group z-20" style="top: 61%; left: 13%;" data-category="food" onclick="openShopModal(2)">
                         <div class="relative flex items-center justify-center">
-                            <span class="absolute w-8 h-8 rounded-full bg-amber-400 pin-pulse"></span>
-                            <div class="w-10 h-10 rounded-full bg-amber-600 text-white flex items-center justify-center font-bold shadow-lg group-hover:scale-125 transition-transform">
-                                <i class="fa-solid fa-bowl-food"></i>
+                            <span class="absolute w-8 h-8 rounded-full bg-amber-300 pin-pulse"></span>
+                            <div class="w-9 h-9 rounded-full bg-amber-400 text-amber-950 flex items-center justify-center font-bold shadow-lg group-hover:scale-125 transition-transform border-2 border-white">
+                                <i class="fa-solid fa-utensils text-xs"></i>
                             </div>
                         </div>
-                        <div class="bg-gray-900/90 text-white text-[11px] font-bold px-2.5 py-1 rounded-md shadow-md mt-1 -translate-x-1/4 whitespace-nowrap">
-                            115호 가마솥반찬
+                        <div class="bg-gray-900/90 text-white text-[11px] font-bold px-2 py-0.5 rounded-md shadow-md mt-1 -translate-x-1/4 whitespace-nowrap">
+                            청도선지국밥 (밥집)
                         </div>
                     </div>
 
-                    <!-- Pin 4: 소락이네 방앗간/떡집 -->
-                    <div class="shop-pin absolute cursor-pointer group" style="top: 72%; left: 35%;" data-category="food" onclick="openShopModal(3)">
+                    <!-- Pin 5: 소락이네 떡집 & 방앗간 (노랑) -->
+                    <div class="shop-pin absolute cursor-pointer group z-20" style="top: 27%; left: 41%;" data-category="food" onclick="openShopModal(3)">
                         <div class="relative flex items-center justify-center">
-                            <span class="absolute w-8 h-8 rounded-full bg-amber-400 pin-pulse"></span>
-                            <div class="w-10 h-10 rounded-full bg-amber-700 text-white flex items-center justify-center font-bold shadow-lg group-hover:scale-125 transition-transform">
-                                <i class="fa-solid fa-cookie"></i>
+                            <span class="absolute w-8 h-8 rounded-full bg-amber-300 pin-pulse"></span>
+                            <div class="w-9 h-9 rounded-full bg-amber-400 text-amber-950 flex items-center justify-center font-bold shadow-lg group-hover:scale-125 transition-transform border-2 border-white">
+                                <i class="fa-solid fa-bowl-rice text-xs"></i>
                             </div>
                         </div>
-                        <div class="bg-gray-900/90 text-white text-[11px] font-bold px-2.5 py-1 rounded-md shadow-md mt-1 -translate-x-1/4 whitespace-nowrap">
-                            118호 소락이네떡집
+                        <div class="bg-gray-900/90 text-white text-[11px] font-bold px-2 py-0.5 rounded-md shadow-md mt-1 -translate-x-1/4 whitespace-nowrap">
+                            부곡방앗간 (밥집/떡)
                         </div>
                     </div>
 
-                    <!-- Pin 5: 부곡 정육점 -->
-                    <div class="shop-pin absolute cursor-pointer group" style="top: 32%; left: 82%;" data-category="meat" onclick="openShopModal(4)">
+                    <!-- Pin 6: 부산 수산 (파랑) -->
+                    <div class="shop-pin absolute cursor-pointer group z-20" style="top: 71%; left: 43%;" data-category="fish" onclick="openShopModal(5)">
                         <div class="relative flex items-center justify-center">
-                            <span class="absolute w-8 h-8 rounded-full bg-rose-400 pin-pulse"></span>
-                            <div class="w-10 h-10 rounded-full bg-rose-700 text-white flex items-center justify-center font-bold shadow-lg group-hover:scale-125 transition-transform">
-                                <i class="fa-solid fa-drumstick-bite"></i>
+                            <span class="absolute w-8 h-8 rounded-full bg-blue-400 pin-pulse"></span>
+                            <div class="w-9 h-9 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold shadow-lg group-hover:scale-125 transition-transform border-2 border-white">
+                                <i class="fa-solid fa-water text-xs"></i>
                             </div>
                         </div>
-                        <div class="bg-gray-900/90 text-white text-[11px] font-bold px-2.5 py-1 rounded-md shadow-md mt-1 -translate-x-1/4 whitespace-nowrap">
-                            112호 부곡정육점
-                        </div>
-                    </div>
-
-                    <!-- Pin 6: 만물 생활잡화 -->
-                    <div class="shop-pin absolute cursor-pointer group" style="top: 68%; left: 75%;" data-category="general" onclick="openShopModal(5)">
-                        <div class="relative flex items-center justify-center">
-                            <span class="absolute w-8 h-8 rounded-full bg-indigo-400 pin-pulse"></span>
-                            <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold shadow-lg group-hover:scale-125 transition-transform">
-                                <i class="fa-solid fa-basket-shopping"></i>
-                            </div>
-                        </div>
-                        <div class="bg-gray-900/90 text-white text-[11px] font-bold px-2.5 py-1 rounded-md shadow-md mt-1 -translate-x-1/4 whitespace-nowrap">
-                            125호 만물상회
+                        <div class="bg-gray-900/90 text-white text-[11px] font-bold px-2 py-0.5 rounded-md shadow-md mt-1 -translate-x-1/4 whitespace-nowrap">
+                            시장 도매 횟집 (생선)
                         </div>
                     </div>
 
                 </div>
             </div>
             
-            <p class="text-xs text-center text-gray-400 mt-3">* 원하는 가게 핀을 누르시면 온누리상품권 사용여부 및 상세 정보를 확인하실 수 있습니다.</p>
+            <p class="text-xs text-center text-gray-400 mt-3">* 부곡시장 안내도(bugokimg.jpg) 기반 위치 및 업종별 구별 (파랑=생선, 초록=야채, 빨강=고기, 노랑=밥집). 핀을 눌러 상세 매장 정보를 확인해 보세요.</p>
         </div>
     </section>
 
@@ -673,8 +654,8 @@
                         <div>
                             <h4 class="font-bold text-gray-900 text-sm sm:text-base">공영주차장 및 편의시설</h4>
                             <p class="text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed">
-                                • 부곡시장 공영주차장 이용 (1시간 무료주차권 제공)<br>
-                                • 시장 내 고객 쉼터 및 남/녀 구분 화장실 구비
+                                • 부곡시장 공영주차장 이용 (기본 30분-1,500원, 30분 이후 10분당 500원)<br>
+                                • 시장 내 상인회 존재, 남/녀 구분 화장실 구비
                             </p>
                         </div>
                     </div>
@@ -767,24 +748,26 @@
 
     <!-- JAVASCRIPT INTERACTIVE LOGIC -->
     <script>
-        // Shop Data Store
+        // Shop Data Store with Color Categories from Excel Map
         const shopData = [
             {
                 id: 0,
                 name: "부곡 싱싱청과",
                 no: "101호 (A구역)",
-                category: "farm",
-                items: "제철 단감, 사과, 김장 배추, 알타리무",
+                category: "vegetable",
+                typeText: "🟢 야채 (농산물)",
+                items: "제철 단감, 사과, 김장 배추, 알타리무, 싱싱 야채",
                 hours: "07:30 - 20:00 (연중무휴)",
                 onnuri: true,
-                tip: "아침 8시에 방문하시면 갓 들어온 최상품 과일을 사장님의 특별 덤과 함께 구매하실 수 있어요!",
+                tip: "아침 8시에 방문하시면 갓 들어온 최상품 과일과 야채를 사장님의 특별 덤과 함께 구매하실 수 있어요!",
                 image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8ce?auto=format&fit=crop&w=400&q=80"
             },
             {
                 id: 1,
                 name: "금정 수산",
                 no: "108호 (B구역)",
-                category: "meat",
+                category: "fish",
+                typeText: "🔵 생선 (수산물)",
                 items: "통영 생굴, 남해 갈치, 신선 오징어, 조개류",
                 hours: "08:00 - 19:30 (매주 일요일 휴무)",
                 onnuri: true,
@@ -793,21 +776,23 @@
             },
             {
                 id: 2,
-                name: "가마솥 즉석반찬",
-                no: "115호 (C구역)",
+                name: "소문난 시장칼국수",
+                no: "115호 (D구역)",
                 category: "food",
-                items: "수제 김치류, 각종 볶음 반찬, 국/찌개 패키지",
+                typeText: "🟡 밥집 (식당)",
+                items: "손칼국수, 가마솥 국밥, 수제 비빔밥, 각종 반찬",
                 hours: "09:00 - 20:00",
                 onnuri: true,
-                tip: "가마솥에서 직접 끓여낸 소고기 국밥용 육수가 이 집의 감춰진 별미입니다!",
+                tip: "가마솥에서 직접 깊게 우려낸 육수와 손칼국수 면발의 조화가 훌륭한 부곡시장 대표 밥집입니다!",
                 image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=400&q=80"
             },
             {
                 id: 3,
                 name: "소락이네 방앗간 & 떡집",
-                no: "118호 (C구역)",
+                no: "118호 (D구역)",
                 category: "food",
-                items: "갓 뽑은 가래떡, 영양 찰떡, 국산 참기름",
+                typeText: "🟡 밥집 (먹거리)",
+                items: "갓 뽑은 가래떡, 영양 찰떡, 국산 참기름, 떡볶이 떡",
                 hours: "06:30 - 19:00",
                 onnuri: true,
                 tip: "소락이가 강추하는 따끈따끈 꿀설기와 인절미는 오후 2시면 품절되니 일찍 가보세요!",
@@ -816,9 +801,10 @@
             {
                 id: 4,
                 name: "부곡 정육점",
-                no: "112호 (B구역)",
+                no: "112호 (C구역)",
                 category: "meat",
-                items: "국산 암돼지 삼겹살, 한우 수육용 고기",
+                typeText: "🔴 고기 (정육)",
+                items: "국산 암돼지 삼겹살, 한우 수육용 고기, 한우 생고기",
                 hours: "08:30 - 20:30",
                 onnuri: true,
                 tip: "김장철 보쌈용 돼지고기 수육 부위를 사시면 파채와 양념을 서비스로 주십니다.",
@@ -826,14 +812,15 @@
             },
             {
                 id: 5,
-                name: "만물 상회",
-                no: "125호 (D구역)",
-                category: "general",
-                items: "주방용품, 고무장갑, 김장 비닐, 종합 잡화",
-                hours: "08:00 - 21:00",
+                name: "부곡 수산",
+                no: "109호 (B구역)",
+                category: "fish",
+                typeText: "🔵 생선 (수산물)",
+                items: "제철 고등어, 삼치, 멍게, 신선 해산물 모듬",
+                hours: "08:00 - 20:00",
                 onnuri: true,
-                tip: "부곡시장에서 필요한 모든 생활용품이 다 있어요. 친절한 사장님 추천 템을 믿어보세요!",
-                image: "https://images.unsplash.com/photo-1583209814683-c023dd293cc6?auto=format&fit=crop&w=400&q=80"
+                tip: "매일 아침 자갈치 시장에서 엄선해 오는 생선이라 횟감 및 구이용 신선도가 최고입니다!",
+                image: "https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=400&q=80"
             }
         ];
 
@@ -849,9 +836,12 @@
                     <span class="absolute top-3 left-3 bg-amber-900 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
                         ${shop.no}
                     </span>
+                    <span class="absolute top-3 right-3 bg-white/90 text-gray-900 text-xs font-extrabold px-3 py-1 rounded-full shadow border">
+                        ${shop.typeText}
+                    </span>
                 </div>
                 <h3 class="text-2xl font-black text-gray-900 mb-1">${shop.name}</h3>
-                <p class="text-xs text-amber-800 font-bold mb-4">대표 상품: ${shop.items}</p>
+                <p class="text-xs text-amber-800 font-bold mb-4">주요 품목: ${shop.items}</p>
                 
                 <div class="space-y-2 text-xs text-gray-600 bg-amber-50/50 p-4 rounded-2xl border border-amber-100 mb-4">
                     <div class="flex items-center gap-2">
