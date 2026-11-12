@@ -64,6 +64,55 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #4A3525;
         }
+
+        /* Luxury Click Ripple & Subtle Gold Dust Effect */
+        .click-ripple {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            border-radius: 9999px;
+            border: 1.5px solid rgba(217, 119, 6, 0.55);
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.18) 0%, rgba(251, 191, 36, 0) 70%);
+            transform: translate(-50%, -50%) scale(0);
+            animation: luxury-ripple 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes luxury-ripple {
+            0% {
+                width: 12px;
+                height: 12px;
+                opacity: 0.95;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            100% {
+                width: 68px;
+                height: 68px;
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+
+        .click-dust {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            border-radius: 9999px;
+            background: #F59E0B;
+            box-shadow: 0 0 6px rgba(251, 191, 36, 0.8);
+            transform: translate(-50%, -50%);
+            animation: luxury-dust 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes luxury-dust {
+            0% {
+                opacity: 0.9;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0.1);
+            }
+        }
     </style>
 </head>
 <body class="bg-amber-50/20 text-gray-800 antialiased selection:bg-amber-200">
@@ -86,7 +135,7 @@
                 <!-- Desktop Nav -->
                 <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-700">
                     <a href="#map-section" class="hover:text-amber-800 transition-colors">시장 지도</a>
-                    <a href="#seasonal-section" class="hover:text-amber-800 transition-colors">11월 제철식품</a>
+                    <a href="#seasonal-section" class="hover:text-amber-800 transition-colors">부곡시장 마스코트 소개</a>
                     <a href="#event-section" class="hover:text-amber-800 transition-colors flex items-center gap-1">
                         <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
                         11월 상권이벤트
@@ -400,11 +449,11 @@
 
                 <!-- Event Card 02: 부곡시장 이벤트 (11월 21일 부광상회 부스) - 메인 강조 -->
                 <div class="bg-gradient-to-b from-amber-800/90 to-amber-950/95 backdrop-blur-md rounded-3xl p-7 border-2 border-amber-400/80 hover:border-amber-300 transition-all shadow-2xl relative overflow-hidden group lg:-translate-y-2">
-                    <div class="absolute -right-6 -top-6 bg-red-600 text-white text-[10px] font-black tracking-widest uppercase px-8 py-2 rotate-45 shadow-md">
+                    <div class="w-36 text-center -right-9 top-5 bg-red-600 text-white text-[10px] font-black tracking-wider uppercase py-1.5 rotate-45 shadow-md absolute z-10 pointer-events-none">
                         MAIN EVENT
                     </div>
                     
-                    <div class="flex justify-between items-center mb-4">
+                    <div class="flex justify-between items-center mb-4 pr-10">
                         <span class="w-12 h-12 rounded-2xl bg-red-600 text-white flex items-center justify-center font-black text-xl shadow-lg">
                             02
                         </span>
@@ -814,6 +863,47 @@
             alert('11월 부곡시장 이벤트 응모가 성공적으로 완료되었습니다! 시장 방문 시 문자를 제시해주세요.');
             closeEventFormModal();
         }
+
+        // Refined Luxury Click Ripple & Gold Dust Effect
+        document.addEventListener('click', function(e) {
+            // 1. Soft Warm Gold Ripple
+            const ripple = document.createElement('div');
+            ripple.className = 'click-ripple';
+            ripple.style.left = `${e.clientX}px`;
+            ripple.style.top = `${e.clientY}px`;
+            document.body.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 650);
+
+            // 2. Minimalist Delicate Gold Dust Particles
+            const dustColors = ['#FBBF24', '#F59E0B', '#FDE68A', '#D97706'];
+            const particleCount = 6;
+
+            for (let i = 0; i < particleCount; i++) {
+                const dust = document.createElement('div');
+                dust.className = 'click-dust';
+                
+                const angle = (Math.PI * 2 * i) / particleCount + (Math.random() - 0.5) * 0.4;
+                const velocity = 18 + Math.random() * 22;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+                const size = 2.5 + Math.random() * 2.5;
+                const color = dustColors[Math.floor(Math.random() * dustColors.length)];
+
+                dust.style.left = `${e.clientX}px`;
+                dust.style.top = `${e.clientY}px`;
+                dust.style.setProperty('--tx', `${tx}px`);
+                dust.style.setProperty('--ty', `${ty}px`);
+                dust.style.width = `${size}px`;
+                dust.style.height = `${size}px`;
+                dust.style.backgroundColor = color;
+
+                document.body.appendChild(dust);
+
+                setTimeout(() => {
+                    dust.remove();
+                }, 600);
+            }
+        });
     </script>
 </body>
 </html>
